@@ -95,10 +95,7 @@ class DatabaseFacade:
         rows = []
         for row in self.cursor.execute("SELECT * FROM {}".format(self.table_name)):
             if kronos.get_day_of_week(kronos.get_date_time()) == "Monday":
-                if (
-                    kronos.get_day_of_week(kronos.get_date_time_from_string(row[1]))
-                    == "Friday"
-                ):
+                if kronos.is_previous_friday(row[1]):
                     item = self.__format_row(row)
                     rows.append(item)
             if kronos.is_yesterday(row[1]):

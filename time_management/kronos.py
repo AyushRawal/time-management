@@ -26,6 +26,12 @@ def get_date_time():
     return datetime.now()
 
 
+def is_previous_friday(date_time_string, today=get_date_time()):
+    date_time = get_date_time_from_string(date_time_string)
+    pre_friday = today - timedelta(days=3)
+    return date_time.date() == pre_friday.date()
+
+
 def is_yesterday(date_time_string, today=get_date_time()):
     date_time = get_date_time_from_string(date_time_string)
     yesterday = today - timedelta(days=1)
