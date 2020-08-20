@@ -6,11 +6,13 @@ from interface_common import (
 )
 from interface_time_management import run_menu_loop_tm
 from interface_maintenance import run_menu_loop_maintenance
+import os
 
 
 def prompt_mode():
     initialize_menu(run_menu_loop_mode)
-    print_ascii_banner(parse_ascii_banner("time_management/banners/mode.txt"))
+    banner = os.path.join(os.path.dirname(__file__), "banners/mode.txt")
+    print_ascii_banner(parse_ascii_banner(banner))
     return input(
         """
 1: Time management

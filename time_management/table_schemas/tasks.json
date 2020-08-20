@@ -4,5 +4,6 @@
     "date": "text",
     "task": "text",
     "complete_in_days": "text",
-    "is_complete": "text"
+    "is_complete": "text",
+    "is_void": "text"
 }

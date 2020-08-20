@@ -5,10 +5,12 @@ from interface_common import (
     quit_program,
     to_previous_menu,
 )
+import os
 
 
 def prompt_maintenance():
-    print_ascii_banner(parse_ascii_banner("time_management/banners/maintenance.txt"))
+    banner = os.path.join(os.path.dirname(__file__), "banners/maintenance.txt")
+    print_ascii_banner(parse_ascii_banner(banner))
     return input(
         """
 0: Return to mode menu

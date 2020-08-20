@@ -14,6 +14,10 @@ week_days = {
 }
 
 
+def get_date_time():
+    return datetime.now()
+
+
 def get_date_time_as_string():
     return get_date_time().strftime(string_format_time)
 
@@ -22,8 +26,8 @@ def get_date_time_from_string(date_time_str):
     return datetime.strptime(date_time_str, string_format_time)
 
 
-def get_date_time():
-    return datetime.now()
+def get_day_of_week(date_time):
+    return week_days.get(date_time.weekday())
 
 
 def is_previous_friday(date_time_string, today=get_date_time()):
@@ -36,10 +40,6 @@ def is_yesterday(date_time_string, today=get_date_time()):
     date_time = get_date_time_from_string(date_time_string)
     yesterday = today - timedelta(days=1)
     return date_time.date() == yesterday.date()
-
-
-def get_day_of_week(date_time):
-    return week_days.get(date_time.weekday())
 
 
 def is_overdue(date_time_string, completion_goal):

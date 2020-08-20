@@ -5,10 +5,12 @@ from interface_common import (
     clear_screen,
     to_previous_menu,
 )
+import os
 
 
 def prompt_time_management():
-    print_ascii_banner(parse_ascii_banner("time_management/banners/tm.txt"))
+    banner = os.path.join(os.path.dirname(__file__), "banners/tm.txt")
+    print_ascii_banner(parse_ascii_banner(banner))
     return input(
         """0: Return to mode menu
 1: Make a note
@@ -119,7 +121,8 @@ def print_overdue_tasks(facade):
 
 def print_scrum_notes(facade):
     clear_screen()
-    print_ascii_banner(parse_ascii_banner("time_management/banners/scrum.txt"))
+    banner = os.path.join(os.path.dirname(__file__), "banners/scrum.txt")
+    print_ascii_banner(parse_ascii_banner(banner))
     table_rows = facade.get_last_days_items()
     for row in table_rows:
         print(row)
